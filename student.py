@@ -6,12 +6,12 @@ from PIL import Image,ImageTk
 class Student:
     def __init__(self,root):
         self.root = root
-        self.root.geometry("1530*790+0+0")
+        self.root.geometry("1530x790+0+0")
         self.root.title("face Recognition System")
 
         # first image
         # face- recognition
-        img=Image.open(r"D:\Face-attendance-system-3-S\Face-attendance-system-3-S\student_images\face_recognition.png")
+        img=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\student_images\face_recognition.png")
         img=img.resize((500,130), Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
 
@@ -21,7 +21,7 @@ class Student:
 
         #second image
         #smart attendance
-        img1=Image.open(r"D:\Face-attendance-system-3-S\Face-attendance-system-3-S\student_images\smart_attendance.png")
+        img1=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\student_images\smart_attendance.png")
         img1=img1.resize((500,130),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
@@ -31,7 +31,7 @@ class Student:
 
         #third image
         #clg
-        img2=Image.open(r"D:\Face-attendance-system-3-S\Face-attendance-system-3-S\student_images\students_clg.png")
+        img2=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\student_images\students_clg.png")
         img2=img2.resize((500,130),Image.ANTIALIAS)
         self.photoimg2=ImageTk.PhotoImage(img2)
 
@@ -39,7 +39,7 @@ class Student:
         f_lbl.place(x=1000,y=0,width=550,height=130)
 
         #background image
-        img3=Image.open(r"D:\Face-attendance-system-3-S\Face-attendance-system-3-S\student_images\bg.png")
+        img3=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\student_images\bg.png")
         img3=img3.resize((1530,710),Image.ANTIALIAS)
         self.photoimg3=ImageTk.PhotoImage(img3)
 
@@ -57,55 +57,55 @@ class Student:
         Left_frame.place(x=10,y=10,width=730,height=580)
 
         #image here
-        img_left=Image.open(r"D:\Face-attendance-system-3-S\Face-attendance-system-3-S\student_images\student_details.png")
+        img_left=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\student_images\student_details.png")
         img_left=img_left.resize((720,130),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_left)
 
-        f_lbl=Label(left_frame,image=self.photoimg_left)
+        f_lbl=Label(Left_frame,image=self.photoimg_left)
         f_lbl.place(x=5,y=0,width=720,height=130)
 
         #current course information
-        current_course_frame=LabelFrame(left_frame,bd=2,bg="white",relief=RIDGE,text="Current course information", font=("times new roman", 12,"bold"))
+        current_course_frame=LabelFrame(Left_frame,bd=2,bg="white",relief=RIDGE,text="Current course information", font=("times new roman", 12,"bold"))
         current_course_frame.place(x=5,y=135,width=720,height=115)
 
         #department
         dep_label=Label(current_course_frame,text="Department",font=("times new roman", 12,"bold"),bg="white")
         dep_label.grid(row=0,column=0,padx=10,sticky=W)
 
-        dep_combo=tkt.Combobox(current_course_frame,font=("times new roman", 13,"bold"),width=20,state = "readonly")
+        dep_combo=ttk.Combobox(current_course_frame,font=("times new roman", 13,"bold"),width=20,state = "readonly")
         dep_combo["values"]=("Select Department" , "Computer", "ECE", "Civil", "EE" , "Mech")
-        dep.combo.current(0)
+        dep_combo.current(0)
         dep_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
 
         #Course
         course_label=Label(current_course_frame,text="Course",font=("times new roman", 13,"bold"),bg="white")
         course_label.grid(row=0,column=0,padx=10,sticky=W)
 
-        course_combo=tkt.Combobox(current_course_frame,font=("times new roman", 13,"bold"),width=20,state = "readonly")
+        course_combo=ttk.Combobox(current_course_frame,font=("times new roman", 13,"bold"),width=20,state = "readonly")
         course_combo["values"]=("Select Course", "FE", "SE", "TE","BE")
-        course.combo.current(0)
+        course_combo.current(0)
         course_combo.grid(row=0,column=3,padx=2,pady=10,sticky=W)
 
         #year
         year_label=Label(current_course_frame,text="Year",font=("times new roman", 13,"bold"),bg="white")
         year_label.grid(row=1,column=0,padx=10, sticky=W)
 
-        year_combo=tkt.Combobox(current_course_frame,font=("times new roman", 13,"bold"),width=20,state = "readonly")
+        year_combo=ttk.Combobox(current_course_frame,font=("times new roman", 13,"bold"),width=20,state = "readonly")
         year_combo["values"]=("Select Year" , "2020-21" , "2021-22", "2022-23", "2023-24")
-        year.combo.current(0)
+        year_combo.current(0)
         year_combo.grid(row=1,column=1,padx=2,pady=10,sticky=W)
 
         #semester
         semester_label=Label(current_course_frame,text="Semester",font=("times new roman", 13,"bold"),bg="white")
         semester_label.grid(row=1,column=2,padx=10, sticky=W)
 
-        semester_combo=tkt.Combobox(current_course_frame,font=("times new roman", 13,"bold"),width=20,state = "readonly")
+        semester_combo=ttk.Combobox(current_course_frame,font=("times new roman", 13,"bold"),width=20,state = "readonly")
         semester_combo["values"]=("Select Semester" , "Semester-1" , "Semester-2", "Semester-3", "Semester-4", "Semester-5","Semester-6")
-        semester.combo.current(0)
+        semester_combo.current(0)
         semester_combo.grid(row=1,column=3,padx=2,pady=10,sticky=W)
 
         #class Student information
-        class_Student_frame=LabelFrame(left_frame,bd=2,bg="white",relief=RIDGE,text="Class Student information", font=("times new roman", 12,"bold"))
+        class_Student_frame=LabelFrame(Left_frame,bd=2,bg="white",relief=RIDGE,text="Class Student information", font=("times new roman", 12,"bold"))
         class_Student_frame.place(x=5,y=250,width=720,height=300)
         
         #student ID
@@ -215,24 +215,24 @@ class Student:
         Right_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details", font=("times new roman", 12,"bold"))
         Right_frame.place(x=750,y=10,width=720,height=580)
 
-        img_right=Image.open(r"D:\Face-attendance-system-3-S\Face-attendance-system-3-S\student_images\student.png")
+        img_right=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\student_images\student.png")
         img_right=img_right.resize((720,130),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_right)
 
-        f_lbl=Label(right_frame,image=self.photoimg_right)
+        f_lbl=Label(Right_frame,image=self.photoimg_left)
         f_lbl.place(x=5,y=0,width=720,height=130)
 
         # ============Search System===============
 
-        Search_frame=LabelFrame(right_frame,bd=2,bg="white",relief=RIDGE,text="Search System", font=("times new roman", 12,"bold"))
+        Search_frame=LabelFrame(Right_frame,bd=2,bg="white",relief=RIDGE,text="Search System", font=("times new roman", 12,"bold"))
         Search_frame.place(x=5,y=135,width=710,height=70)
 
         search_label=Label(class_Student_frame,text="Search By:",font=("times new roman", 13,"bold"),bg="red",fg="white")
         search_label.grid(row=0,column=0,padx=10,pady=5, sticky=W)
 
-        search_combo=tkt.Combobox(Search_frame,font=("times new roman", 13,"bold"),width=15,state = "readonly")
+        search_combo=ttk.Combobox(Search_frame,font=("times new roman", 13,"bold"),width=15,state = "readonly")
         search_combo["values"]=("Select" , "Roll_No" , "Phone_No")
-        search.combo.current(0)
+        search_combo.current(0)
         search_combo.grid(row=0,column=1,padx=2,pady=10,sticky=W)
 
         search_entry = ttk.Entry(class_Student_frame,width=20,font=("times new roman", 13,"bold"))
@@ -245,7 +245,7 @@ class Student:
         showAll_btn.grid(row=0,column=4,padx=4)
 
         # ================table frame==============
-        table_frame=Frame(right_frame,bd=2,bg="white",relief=RIDGE)
+        table_frame=Frame(Right_frame,bd=2,bg="white",relief=RIDGE)
         table_frame.place(x=5,y=210,width=710,height=350)
 
         scroll_x=ttk.Scrollbar(table_frame,orient=HORIZONTAL)
@@ -294,7 +294,7 @@ class Student:
 
 
 
-# # if __name__ == "__main__":
-# #     root=Tk()
-# #     obj=Student(root)
-# #     root.mainloop()        
+if __name__ == "__main__":
+    root=Tk()
+    obj=Student(root)
+    root.mainloop()        
