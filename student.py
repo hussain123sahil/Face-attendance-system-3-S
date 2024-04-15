@@ -11,7 +11,7 @@ class Student:
 
         # first image
         # face- recognition
-        img=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\student_images\face_recognition.png")
+        img=Image.open(r"./student_images/face_recognition.png")
         img=img.resize((500,130), Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
 
@@ -21,17 +21,17 @@ class Student:
 
         #second image
         #smart attendance
-        img1=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\student_images\smart_attendance.png")
+        img1=Image.open(r"./student_images/smart_attendance.png")
         img1=img1.resize((500,130),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
         f_lbl=Label(self.root,image=self.photoimg1)
-        f_lbl.place(x=500,y=0,width=500,height=130)
+        f_lbl.place(x=525,y=0,width=500,height=130)
 
 
         #third image
         #clg
-        img2=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\student_images\students_clg.png")
+        img2=Image.open(r"./student_images/students_clg.png")
         img2=img2.resize((500,130),Image.ANTIALIAS)
         self.photoimg2=ImageTk.PhotoImage(img2)
 
@@ -39,7 +39,7 @@ class Student:
         f_lbl.place(x=1000,y=0,width=550,height=130)
 
         #background image
-        img3=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\student_images\bg.png")
+        img3=Image.open(r"./student_images/bg1.png")
         img3=img3.resize((1530,710),Image.ANTIALIAS)
         self.photoimg3=ImageTk.PhotoImage(img3)
 
@@ -57,7 +57,7 @@ class Student:
         Left_frame.place(x=10,y=10,width=730,height=580)
 
         #image here
-        img_left=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\student_images\student_details.png")
+        img_left=Image.open(r"./student_images/student_details.png")
         img_left=img_left.resize((720,130),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_left)
 
@@ -79,7 +79,7 @@ class Student:
 
         #Course
         course_label=Label(current_course_frame,text="Course",font=("times new roman", 13,"bold"),bg="white")
-        course_label.grid(row=0,column=0,padx=10,sticky=W)
+        course_label.grid(row=0,column=2,padx=10,sticky=W)
 
         course_combo=ttk.Combobox(current_course_frame,font=("times new roman", 13,"bold"),width=20,state = "readonly")
         course_combo["values"]=("Select Course", "FE", "SE", "TE","BE")
@@ -215,7 +215,7 @@ class Student:
         Right_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details", font=("times new roman", 12,"bold"))
         Right_frame.place(x=750,y=10,width=720,height=580)
 
-        img_right=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\student_images\student.png")
+        img_right=Image.open(r"./student_images/student.png")
         img_right=img_right.resize((720,130),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_right)
 
