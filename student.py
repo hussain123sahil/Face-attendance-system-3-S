@@ -29,11 +29,7 @@ class Student:
 
         # first image
         # face- recognition
-<<<<<<< HEAD
-        img=Image.open(r"C:\Facerecognise\Face-attendance-system-3-S\student_images\face_recognition.png")
-=======
         img=Image.open(r"./student_images/face_recognition.png")
->>>>>>> 48a8ba0ea78bc0d84ec70dc4c66158cf6bcd0609
         img=img.resize((500,130), Image.ANTIALIAS)
         self.photoimg=ImageTk.PhotoImage(img)
 
@@ -43,11 +39,7 @@ class Student:
 
         #second image
         #smart attendance
-<<<<<<< HEAD
-        img1=Image.open(r"C:\Facerecognise\Face-attendance-system-3-S\student_images\smart_attendance.png")
-=======
         img1=Image.open(r"./student_images/smart_attendance.png")
->>>>>>> 48a8ba0ea78bc0d84ec70dc4c66158cf6bcd0609
         img1=img1.resize((500,130),Image.ANTIALIAS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
@@ -57,11 +49,7 @@ class Student:
 
         #third image
         #clg
-<<<<<<< HEAD
-        img2=Image.open(r"C:\Facerecognise\Face-attendance-system-3-S\student_images\students_clg.png")
-=======
         img2=Image.open(r"./student_images/students_clg.png")
->>>>>>> 48a8ba0ea78bc0d84ec70dc4c66158cf6bcd0609
         img2=img2.resize((500,130),Image.ANTIALIAS)
         self.photoimg2=ImageTk.PhotoImage(img2)
 
@@ -69,11 +57,7 @@ class Student:
         f_lbl.place(x=1000,y=0,width=550,height=130)
 
         #background image
-<<<<<<< HEAD
-        img3=Image.open(r"C:\Facerecognise\Face-attendance-system-3-S\student_images\bg.png")
-=======
         img3=Image.open(r"./student_images/bg1.png")
->>>>>>> 48a8ba0ea78bc0d84ec70dc4c66158cf6bcd0609
         img3=img3.resize((1530,710),Image.ANTIALIAS)
         self.photoimg3=ImageTk.PhotoImage(img3)
 
@@ -91,11 +75,7 @@ class Student:
         Left_frame.place(x=10,y=10,width=730,height=580)
 
         #image here
-<<<<<<< HEAD
-        img_left=Image.open(r"C:\Facerecognise\Face-attendance-system-3-S\student_images\student_details.png")
-=======
         img_left=Image.open(r"./student_images/student_details.png")
->>>>>>> 48a8ba0ea78bc0d84ec70dc4c66158cf6bcd0609
         img_left=img_left.resize((720,130),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_left)
 
@@ -255,11 +235,7 @@ class Student:
         Right_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details", font=("times new roman", 12,"bold"))
         Right_frame.place(x=750,y=10,width=720,height=580)
 
-<<<<<<< HEAD
-        img_right=Image.open(r"C:\Facerecognise\Face-attendance-system-3-S\student_images\student.png")
-=======
         img_right=Image.open(r"./student_images/student.png")
->>>>>>> 48a8ba0ea78bc0d84ec70dc4c66158cf6bcd0609
         img_right=img_right.resize((720,130),Image.ANTIALIAS)
         self.photoimg_left=ImageTk.PhotoImage(img_right)
 
