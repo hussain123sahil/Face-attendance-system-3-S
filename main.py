@@ -1,141 +1,105 @@
-from tkinter import*
+import os
+from tkinter import *
 from tkinter import ttk
-from PIL import Image,ImageTk
+from PIL import Image, ImageTk
 
+class FaceRecognitionSystem:
+    def __init__(self, root):
+        self.root = root
+        self.root.geometry("1530x840")
+        self.root.title("Face Attendance System")
 
-class Face_Recognition_System:
-    def __init__(self,root):
-        self.root=root
-        self.root.geometry("1530x790+0+0")
-        self.root.title("face Attendance System")
+        # Paths
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        self.student_file_path = os.path.join(current_dir, "student.py")
+        image_dir = os.path.join(current_dir, "college_images")
 
-        #first image
-        img=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\college_images\teacher.jpg")
-        img=img.resize((500,130), Image.ANTIALIAS)
-        self.photoimg=ImageTk.PhotoImage(img)
+        # Define constants
+        button_width = 150
+        button_height = 150
+        button_padx = 50
+        button_pady = 50
+        label_height = 55
 
-        f_lbl=Label(self.root,image=self.photoimg)
-        f_lbl.place(x=0,y=0,width=500,height=130)
+        # Background image
+        bg_img = Image.open(os.path.join(image_dir, "face.jpg"))
+        bg_img = bg_img.resize((1530, 710), Image.ANTIALIAS)
+        self.photoimg3 = ImageTk.PhotoImage(bg_img)
+        bg_label = Label(self.root, image=self.photoimg3)
+        bg_label.place(x=0, y=label_height, width=1310, height=710)
 
+        title_lbl = Label(bg_label, text="Face Recognition Attendance System Software", font=("times new roman", 25, "bold"), bg="white", fg="red")
+        title_lbl.place(x=-130, y=0, width=1530, height=label_height)
 
-        #second image
-        img1=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\college_images\student.jpg")
-        img1=img1.resize((500,130),Image.ANTIALIAS)
-        self.photoimg1=ImageTk.PhotoImage(img1)
+        # Buttons
+        button_images = [
+            "student_icon.png",
+            "student_icon.png",
+            "student_icon.png",
+            "student_icon.png",
+            "student_icon.png",
+            "student_icon.png",
+            "student_icon.png",
+            "student_icon.png"
+        ]
+        button_texts = [
+            "Student Details",
+            "Face Detector",
+            "Attendance",
+            "Help Desk",
+            "Train Data",
+            "Photos",
+            "Developers",
+            "Exit"
+        ]
+        button_commands = [
+            self.open_student_details,
+            self.face_detector,
+            self.attendance,
+            self.help_desk,
+            self.train_data,
+            self.photos,
+            self.developers,
+            root.quit
+        ]
+        for i, (image, text, command) in enumerate(zip(button_images, button_texts, button_commands)):
+            img = Image.open(os.path.join(image_dir, image))
+            img = img.resize((button_width, button_height), Image.ANTIALIAS)
+            photo_img = ImageTk.PhotoImage(img)
 
-        f_lbl=Label(self.root,image=self.photoimg1)
-        f_lbl.place(x=525,y=0,width=500,height=130)
+            row = i // 4
+            col = i % 4
 
+            b = Button(bg_label, image=photo_img, cursor="hand2", command=command)
+            b.image = photo_img  # To prevent garbage collection
+            b.place(x=200 + col * (button_width + button_padx), y=100 + row * (button_height + button_pady), width=button_width, height=button_height)
 
-        #third image
-        img2=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\college_images\college1.jpg")
-        img2=img2.resize((500,130),Image.ANTIALIAS)
-        self.photoimg2=ImageTk.PhotoImage(img2)
+            b1_1 = Button(bg_label, text=text, cursor="hand2", font=("times new roman", 15, "bold"), bg="darkblue", fg="white", command=command)
+            b1_1.place(x=200 + col * (button_width + button_padx), y=100 + row * (button_height + button_pady) + button_height, width=button_width, height=40)
 
-        f_lbl=Label(self.root,image=self.photoimg2)
-        f_lbl.place(x=1000,y=0,width=550,height=130)
+    def open_student_details(self):
+        os.system(f'python {self.student_file_path}')
 
+    def face_detector(self):
+        pass
 
-        #background image
-        img3=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\college_images\face.jpg")
-        img3=img3.resize((1530,710),Image.ANTIALIAS)
-        self.photoimg3=ImageTk.PhotoImage(img3)
+    def attendance(self):
+        pass
 
-        bg_img=Label(self.root,image=self.photoimg3)
-        bg_img.place(x=0,y=130,width=1530,height=710)
+    def help_desk(self):
+        pass
 
-        title_lbl=Label(bg_img,text="Face Recognition Attendance System Software", font=("times new roman",35,"bold"),bg="white",fg="red")
-        title_lbl.place(x=0,y=0,width=1530,height=45)
+    def train_data(self):
+        pass
 
-        # student button
-        img4=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\college_images\student_icon.png")
-        img4=img4.resize((220,220),Image.ANTIALIAS)
-        self.photoimg4=ImageTk.PhotoImage(img4)
+    def photos(self):
+        pass
 
-        b1=Button(bg_img,image=self.photoimg4,cursor="hand2")
-        b1.place(x=200,y=100,width=220,height=220)
+    def developers(self):
+        pass
 
-        b1_1=Button(bg_img,text="Student Details",cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
-        b1_1.place(x=200,y=300,width=220,height=40)
-
-        # face detect button
-        img5=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\college_images\student_icon.png")
-        img5=img5.resize((220,220),Image.ANTIALIAS)
-        self.photoimg5=ImageTk.PhotoImage(img5)
-
-        b1=Button(bg_img,image=self.photoimg5,cursor="hand2")
-        b1.place(x=500,y=100,width=220,height=220)
-
-        b1_1=Button(bg_img,text="Face Detector",cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
-        b1_1.place(x=500,y=300,width=220,height=40)
-
-         # Attendance button
-        img6=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\college_images\student_icon.png")
-        img6=img6.resize((220,220),Image.ANTIALIAS)
-        self.photoimg6=ImageTk.PhotoImage(img6)
-
-        b1=Button(bg_img,image=self.photoimg6,cursor="hand2")
-        b1.place(x=800,y=100,width=220,height=220)
-
-        b1_1=Button(bg_img,text="Attendance",cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
-        b1_1.place(x=800,y=300,width=220,height=40)
-
-         # Help button
-        img7=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\college_images\student_icon.png")
-        img7=img7.resize((220,220),Image.ANTIALIAS)
-        self.photoimg7=ImageTk.PhotoImage(img7)
-
-        b1=Button(bg_img,image=self.photoimg7,cursor="hand2")
-        b1.place(x=1100,y=100,width=220,height=220)
-
-        b1_1=Button(bg_img,text="Help Desk",cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
-        b1_1.place(x=1100,y=300,width=220,height=40)
-
-        # train face button
-        img8=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\college_images\student_icon.png")
-        img8=img8.resize((220,220),Image.ANTIALIAS)
-        self.photoimg8=ImageTk.PhotoImage(img8)
-
-        b1=Button(bg_img,image=self.photoimg8,cursor="hand2")
-        b1.place(x=200,y=380,width=220,height=220)
-
-        b1_1=Button(bg_img,text="Train Data",cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
-        b1_1.place(x=200,y=580,width=220,height=40)
-
-        # photos button
-        img9=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\college_images\student_icon.png")
-        img9=img9.resize((220,220),Image.ANTIALIAS)
-        self.photoimg9=ImageTk.PhotoImage(img9)
-
-        b1=Button(bg_img,image=self.photoimg9,cursor="hand2")
-        b1.place(x=500,y=380,width=220,height=220)
-
-        b1_1=Button(bg_img,text="Photos",cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
-        b1_1.place(x=500,y=580,width=220,height=40)
-
-        # developer button
-        img10=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\college_images\student_icon.png")
-        img10=img10.resize((220,220),Image.ANTIALIAS)
-        self.photoimg10=ImageTk.PhotoImage(img10)
-
-        b1=Button(bg_img,image=self.photoimg10,cursor="hand2")
-        b1.place(x=800,y=380,width=220,height=220)
-
-        b1_1=Button(bg_img,text="Developers",cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
-        b1_1.place(x=800,y=580,width=220,height=40)
-
-        # exit button
-        img11=Image.open(r"E:\DBMS project\Face-attendance-system-3-S\college_images\student_icon.png")
-        img11=img11.resize((220,220),Image.ANTIALIAS)
-        self.photoimg11=ImageTk.PhotoImage(img11)
-
-        b1=Button(bg_img,image=self.photoimg11,cursor="hand2")
-        b1.place(x=1100,y=380,width=220,height=220)
-
-        b1_1=Button(bg_img,text="Exit",cursor="hand2",font=("times new roman",15,"bold"),bg="darkblue",fg="white")
-        b1_1.place(x=1100,y=580,width=220,height=40)
 
 if __name__ == "__main__":
-    root=Tk()
-    obj=Face_Recognition_System(root)
+    root = Tk()
+    obj = FaceRecognitionSystem(root)
     root.mainloop()
