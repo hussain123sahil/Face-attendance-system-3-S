@@ -7,7 +7,7 @@ from tkinter import messagebox
 class Student:
     def __init__(self,root):
         self.root = root
-        self.root.geometry("1430x840+0+0")
+        self.root.geometry("1530x790+0+0")
         self.root.title("face Recognition System")
 
         #============ variables===========
@@ -30,7 +30,7 @@ class Student:
         # first image
         # face- recognition
         img=Image.open(r"./student_images/face_recognition.png")
-        img=img.resize((500,130), Image.ANTIALIAS)
+        img=img.resize((500,130), Image.LANCZOS)
         self.photoimg=ImageTk.PhotoImage(img)
 
         f_lbl=Label(self.root,image=self.photoimg)
@@ -40,7 +40,7 @@ class Student:
         #second image
         #smart attendance
         img1=Image.open(r"./student_images/smart_attendance.png")
-        img1=img1.resize((500,130),Image.ANTIALIAS)
+        img1=img1.resize((500,130),Image.LANCZOS)
         self.photoimg1=ImageTk.PhotoImage(img1)
 
         f_lbl=Label(self.root,image=self.photoimg1)
@@ -50,7 +50,7 @@ class Student:
         #third image
         #clg
         img2=Image.open(r"./student_images/students_clg.png")
-        img2=img2.resize((500,130),Image.ANTIALIAS)
+        img2=img2.resize((500,130),Image.LANCZOS)
         self.photoimg2=ImageTk.PhotoImage(img2)
 
         f_lbl=Label(self.root,image=self.photoimg2)
@@ -58,7 +58,7 @@ class Student:
 
         #background image
         img3=Image.open(r"./student_images/bg1.png")
-        img3=img3.resize((1530,710),Image.ANTIALIAS)
+        img3=img3.resize((1530,710),Image.LANCZOS)
         self.photoimg3=ImageTk.PhotoImage(img3)
 
         bg_img=Label(self.root,image=self.photoimg3)
@@ -76,7 +76,7 @@ class Student:
 
         #image here
         img_left=Image.open(r"./student_images/student_details.png")
-        img_left=img_left.resize((720,130),Image.ANTIALIAS)
+        img_left=img_left.resize((720,130),Image.LANCZOS)
         self.photoimg_left=ImageTk.PhotoImage(img_left)
 
         f_lbl=Label(Left_frame,image=self.photoimg_left)
@@ -236,7 +236,7 @@ class Student:
         Right_frame.place(x=750,y=10,width=720,height=580)
 
         img_right=Image.open(r"./student_images/student.png")
-        img_right=img_right.resize((720,130),Image.ANTIALIAS)
+        img_right=img_right.resize((720,130),Image.LANCZOS)
         self.photoimg_left=ImageTk.PhotoImage(img_right)
 
         f_lbl=Label(Right_frame,image=self.photoimg_left)
@@ -323,4 +323,4 @@ class Student:
 if __name__ == "__main__":
     root=Tk()
     obj=Student(root)
-    root.mainloop()        
+    root.mainloop()   
