@@ -147,7 +147,7 @@ class Student:
         div_combo=ttk.Combobox(class_Student_frame,textvariable=self.var_div,font=("times new roman", 13,"bold"),width=18,state = "readonly")
         div_combo["values"]=("A","B","C")
         div_combo.current(0)
-        div_combo.grid(row=1,column=1,padx=2,pady=10,sticky=W)
+        div_combo.grid(row=1,column=1,padx=2,pady=5,sticky=W)
 
         #roll no
         roll_no_label=Label(class_Student_frame,text="Roll No:",font=("times new roman", 13,"bold"),bg="white")
@@ -163,7 +163,7 @@ class Student:
         gender_combo=ttk.Combobox(class_Student_frame,textvariable=self.var_gender,font=("times new roman", 13,"bold"),width=20,state = "readonly")
         gender_combo["values"]=("Male","Female","Other")
         gender_combo.current(0)
-        gender_combo.grid(row=2,column=1,padx=2,pady=10,sticky=W)
+        gender_combo.grid(row=2,column=1,padx=2,pady=5,sticky=W)
         
 
         #DOB
@@ -219,10 +219,10 @@ class Student:
         update_btn=Button(btn_frame,text="Update",width=17,font=("times new roman", 13,"bold"),bg="blue",fg="white")
         update_btn.grid(row=0,column=1)
 
-        delete_btn=Button(btn_frame,text="Delete",width=17,font=("times new roman", 13,"bold"),bg="blue",fg="white")
+        delete_btn=Button(btn_frame,text="Delete",command=self.delete_data,width=17,font=("times new roman", 13,"bold"),bg="blue",fg="white")
         delete_btn.grid(row=0,column=2)
 
-        reset_btn=Button(btn_frame,text="Reset",width=17,font=("times new roman", 13,"bold"),bg="blue",fg="white")
+        reset_btn=Button(btn_frame,text="Reset",command=self.reset_data,width=17,font=("times new roman", 13,"bold"),bg="blue",fg="white")
         reset_btn.grid(row=0,column=3)
 
         btn_frame1=Frame(class_Student_frame,bd=2,relief=RIDGE,bg="white")
@@ -425,7 +425,51 @@ class Student:
                  self.fetch_data()
                  conn.close() 
              except Exception as es:
-                messagebox.showerror("Error",f"Due to: {str(es)}",parent=self.root)        
+                messagebox.showerror("Error",f"Due to: {str(es)}",parent=self.root)
+    
+    #delete function
+    def delete_data(self):
+        if self.va_std_id.get()=="":
+            messagebox.showerror("Error","Student id must be rquired",parent=self.root)
+        else:
+            try:
+                delete=messagebox.askyesno("Student Delete Page","Do you want to delete this student",parent=self.root)
+                if delete>0:
+                    conn=mysql.connector.connect(host="localhost",username="root",password="NITarunachal2025!",database="face_recognizer")
+                    my_cursor=conn.cursor()
+                    sql="delete from student where Student_id=%s"
+                    val=(self.var_std_id.get(),)
+                    my_cursor.execute(sql,val)
+                else:
+                    if not delete:
+                        return
+                    
+                conn.commit()
+                self.fetch_data()
+                conn.close()  
+                messagebox.showinfo("Delete","Successfully deleted student details",parent=self.root)  
+            except Exception as es:
+                messagebox.showerror("Error",f"Due to: {str(es)}",parent=self.root)
+                
+    # reset
+    def reset_data(self):
+        self.var_dep.set("Select Department")
+        self.var_course.set("Select Course") 
+        self.var_year.set("Select Year")             
+        self.var_semester.set("Select Semester") 
+        self.var_std_id.set("") 
+        self.var_std_name.set("") 
+        self.var_div.set("Select Division") 
+        self.var_roll.set("") 
+        self.var_gender.set("Male") 
+        self.var_dob.set("")
+        self.var_email.set("") 
+        self.var_phone.set("")  
+        self.var_address.set("") 
+        self.var_teacher.set("") 
+        self.var_radio1.set("") 
+                        
+                                
                      
                      
 
