@@ -26,31 +26,31 @@ class Face_Recognition_System:
         img3 = img3.resize((1530, 710), Image.LANCZOS)
         self.photoimg3 = ImageTk.PhotoImage(img3)
 
-        img4 = Image.open(r"./college_images/student_icon.png")
+        img4 = Image.open(r"./college_images/student_details.jpeg")
         img4 = img4.resize((220, 220), Image.LANCZOS)
         self.photoimg4 = ImageTk.PhotoImage(img4)
 
-        img5 = Image.open(r"./college_images/student_icon.png")
+        img5 = Image.open(r"./college_images/face_detector.jpeg")
         img5 = img5.resize((220, 220), Image.LANCZOS)
         self.photoimg5 = ImageTk.PhotoImage(img5)
 
-        img6 = Image.open(r"./college_images/student_icon.png")
+        img6 = Image.open(r"./college_images/attendance.jpg")
         img6 = img6.resize((220, 220), Image.LANCZOS)
         self.photoimg6 = ImageTk.PhotoImage(img6)
 
-        img7 = Image.open(r"./college_images/student_icon.png")
+        img7 = Image.open(r"./college_images/helpdesk.jpeg")
         img7 = img7.resize((220, 220), Image.LANCZOS)
         self.photoimg7 = ImageTk.PhotoImage(img7)
 
-        img8 = Image.open(r"./college_images/student_icon.png")
+        img8 = Image.open(r"./college_images/students.jpeg")
         img8 = img8.resize((220, 220), Image.LANCZOS)
         self.photoimg8 = ImageTk.PhotoImage(img8)
 
-        img9 = Image.open(r"./college_images/student_icon.png")
+        img9 = Image.open(r"./college_images/train_data.jpeg")
         img9 = img9.resize((220, 220), Image.LANCZOS)
         self.photoimg9 = ImageTk.PhotoImage(img9)
 
-        img10 = Image.open(r"./college_images/student_icon.png")
+        img10 = Image.open(r"./college_images/developers.jpeg")
         img10 = img10.resize((220, 220), Image.LANCZOS)
         self.photoimg10 = ImageTk.PhotoImage(img10)
 

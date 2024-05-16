@@ -429,7 +429,7 @@ class Student:
     
     #delete function
     def delete_data(self):
-        if self.va_std_id.get()=="":
+        if self.var_std_id.get()=="":
             messagebox.showerror("Error","Student id must be rquired",parent=self.root)
         else:
             try:
